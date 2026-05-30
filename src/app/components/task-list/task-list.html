@@ -1,0 +1,10 @@
+<div class="task-list">
+  <h2>My Tasks</h2>
+  <app-task-card
+    *ngFor="let task of tasks"
+    [task]="task"
+    [highlight]="task.id === selectedId"
+    (taskCompleted)="onTaskCompleted($event)"
+    (taskDeleted)="onTaskDeleted($event)"
+  />
+</div>

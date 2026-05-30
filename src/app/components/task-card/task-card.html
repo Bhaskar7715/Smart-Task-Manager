@@ -1,0 +1,11 @@
+<div class="task-card" [class.highlight]="highlight" [class.completed]="task.completed">
+  <h3>{{ task.title }}</h3>
+  <p>{{ task.description }}</p>
+  <div class="actions">
+    <button class="btn" [class.btn-complete]="!task.completed"
+      [class.btn-undo]="task.completed" (click)="toggleComplete()">
+      {{ task.completed ? 'Undo' : 'Complete' }}
+    </button>
+    <button class="btn btn-delete" (click)="deleteTask()">Delete</button>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+.task-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.task-card.completed {
+  background: #f0fdf4;
+  border-color: #86efac;
+  opacity: 0.8;
+}
+
+.task-card.highlight {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.task-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  color: #1e293b;
+}
+
+.task-card.completed h3 {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.task-card p {
+  margin: 0 0 14px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-complete {
+  background: #6366f1;
+  color: white;
+}
+
+.btn-complete:hover {
+  background: #4f46e5;
+}
+
+.btn-undo {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.btn-undo:hover {
+  background: #cbd5e1;
+}
+
+.btn-delete {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.btn-delete:hover {
+  background: #fecaca;
+}

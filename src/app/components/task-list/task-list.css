@@ -1,0 +1,15 @@
+.task-list {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 16px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.task-list h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e2e8f0;
+}
