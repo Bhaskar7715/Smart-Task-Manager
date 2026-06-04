@@ -1,0 +1,67 @@
+<div class="container w-50 mt-5">
+    <h2><i>Bank Details</i></h2>
+    <form [formGroup]="form">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>User Name</mat-label>
+                <input matInput formControlName="userName" placeholder="User Name">
+                <mat-error>
+                    @if (f['userName'].errors?.['required']){
+                        User Name is required
+                    }
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput type="number" formControlName="mobile" placeholder="Mobile Number">
+                <mat-error>
+                    @if (f['mobile'].errors?.['required']){
+                        Mobile Number is required
+                    }
+                </mat-error>
+            </mat-form-field>
+
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Aadhar Number</mat-label>
+                <input matInput type="number" formControlName="aadharNumber" placeholder="Aadhar Number">
+                <mat-error>
+                    @if (f['aadharNumber'].errors?.['required']){
+                        Aadhar Number is required
+                    }
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Select Bank</mat-label>
+                <mat-select formControlName="bankName">
+                    <mat-option *ngFor="let ele of banks" [value]="ele.id">
+                        {{ele.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>
+                    @if (f['bankName'].errors?.['required']){
+                        Bank Name is required
+                    }
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <mat-slide-toggle formControlName="Iskyc">Is Kyc</mat-slide-toggle>
+            </div>
+            <div class="col-md-6">
+                <mat-checkbox formControlName="terms">I agree Terms & Conditions</mat-checkbox>
+            </div>
+           
+        </div>
+        <div class="row mt-4">
+            <button mat-flat-button type="button" (click)="submit()">Submit</button>
+        </div>
+    </form>
+</div>
