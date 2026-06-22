@@ -1,0 +1,48 @@
+<mat-toolbar color="primary" class="app-header">
+
+  <!-- Logo / Title -->
+  <span class="logo" routerLink="/">
+    <mat-icon>dashboard</mat-icon>
+    My App
+  </span>
+
+  <!-- Nav links -->
+  <nav class="nav-links">
+    <a href="/home" routerLinkActive="active">Home</a>
+    <a href="/bank" routerLinkActive="active">Bank</a>
+    <a href="/tasks" routerLinkActive="active">Tasks</a>
+    <a href="/registration" routerLinkActive="active">Registration</a>
+    <a href="/bank" routerLinkActive="active">Bank</a>
+    <a href="/users" routerLinkActive="active">Users</a>
+  </nav>
+
+  <span class="spacer"></span>
+
+  <!-- User dropdown -->
+  <button mat-icon-button [matMenuTriggerFor]="userMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <mat-menu #userMenu="matMenu">
+    <div class="menu-user-name">{{ userName }}</div>
+    <mat-divider></mat-divider>
+
+    <button mat-menu-item (click)="onProfile('Profile')">
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+    </button>
+
+    <button mat-menu-item (click)="onSettings('Setting')">
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-menu-item (click)="onLogout('Log-out')">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+
+</mat-toolbar>

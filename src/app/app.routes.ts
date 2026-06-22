@@ -25,5 +25,10 @@ export const routes: Routes = [
     path: 'bank',
     loadComponent: () =>
       import('./components/bank-details/bank-details').then(c => c.BankDetails)   // Lazy loaded
+  },
+  {
+    path: 'users',
+    loadComponent: () =>
+      import('./components/users/users').then(c => c.Users)   // Lazy loaded
   }
 ];

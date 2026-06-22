@@ -1,0 +1,62 @@
+<style>
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+
+<!-- Loader Overlay -->
+<div *ngIf="isLoading" class="loader-overlay">
+  <div class="spinner"></div>
+</div>
+
+<div class="container w-50">
+
+  <!-- Insert / Edit Form -->
+  <form [formGroup]="userForm" (ngSubmit)="isEditMode ? updateUser() : addUser()">
+    <input type="text" formControlName="name" placeholder="Name" />
+    <input type="text" formControlName="phone" placeholder="Phone" />
+    <input type="text" formControlName="username" placeholder="User Name" />
+    <input type="text" formControlName="website" placeholder="Website" />
+
+    <button type="submit" [disabled]="isLoading">
+      {{ isEditMode ? 'Update (PUT)' : 'Add User' }}
+    </button>
+
+    <ng-container *ngIf="isEditMode">
+      <button type="button" class="btn-patch" (click)="patchUser()" [disabled]="isLoading">
+        Patch Name Only
+      </button>
+      <button type="button" class="btn-cancel" (click)="cancelEdit()" [disabled]="isLoading">
+        Cancel
+      </button>
+    </ng-container>
+
+    <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="error-msg">
+      Name is required
+    </div>
+  </form>
+
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>User Name</th>
+      <th>Website</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let user of users; trackBy: trackById">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.website}}</td>
+      <td>
+        <span class="action-edit" (click)="editUser(user)">Edit</span>
+        <span class="action-delete" (click)="deleteUser(user.id)">Delete</span>
+      </td>
+    </tr>
+  </table>
+
+  <div style="height:100px;"></div>
+</div>
