@@ -30,5 +30,31 @@ export const routes: Routes = [
     path: 'users',
     loadComponent: () =>
       import('./components/users/users').then(c => c.Users)   // Lazy loaded
+  },
+   {
+    path: 'smart',
+    loadComponent: () =>
+      import('./components/smart/smart').then(c => c.Smart)   // Lazy loaded
+  },
+  {
+    path:'dump',
+    loadComponent: () =>
+      import('./components/dump/dump').then(c => c.Dump)
+  },
+  {
+    path:'skill',
+    loadComponent:() =>
+      import('./components/skill/skill').then(c => c.Skill)
+  },
+  {
+    path:'employee',
+    loadComponent:()=>
+      import('./components/employee/employee').then(c => c.Employee)
+  },
+  {
+    path:'todo',
+    loadComponent:()=>
+      import('./components/todo/todo').then(c => c.Todo)
   }
+
 ];

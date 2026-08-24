@@ -1,0 +1,81 @@
+<div class="container w-50">
+    <h5>Reactive Form With Form Array</h5>
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <label for="">Employee Name</label>
+                <input type="text" formControlName="employee" placeholder="Name" class="form-control">
+                @if (f['employee'].errors?.['required'] && f['employee'].touched){
+                <span style="color: brown;">Employee Name is required</span>
+                }
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="">Email</label>
+                <input type="text" formControlName="email" placeholder="Email" class="form-control">
+                @if (f['email'].errors?.['required'] && f['email'].touched){
+                <span style="color: brown;">Email is required</span>
+                }
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="">Contact</label>
+                <input type="text" formControlName="contact" placeholder="Contact" class="form-control">
+                @if (f['contact'].errors?.['required'] && f['contact'].touched){
+                <span style="color: brown;">Contact is required</span>
+                }
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="">Designation</label>
+                <select for="" class="form-control" formControlName="designation">
+                    <option value="Angular Developer">Angular Developer</option>
+                    <option value="Tester">Tester</option>
+                    <option value="Team Leader">Team Leader</option>
+                    <option value="Backend Developer">Backend Developer</option>
+                </select>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label><strong>Skills</strong></label>
+
+                <div formArrayName="skills">
+                    @for(skill of skills.controls; track $index){
+                    <div [formGroupName]="$index" class="border p-2 mb-2 rounded">
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <input type="text" formControlName="skillName" placeholder="Skill Name"
+                                    class="form-control">
+                                @if(skill.get('skillName')?.errors?.['required'] && skill.get('skillName')?.touched){
+                                <span style="color:brown;">Skill Name is required</span>
+                                }
+                            </div>
+
+                            <div class="col-md-5">
+                                <input type="text" formControlName="experience" placeholder="Experience (yrs)"
+                                    class="form-control">
+                                @if(skill.get('experience')?.errors?.['required'] && skill.get('experience')?.touched){
+                                <span style="color:brown;">Experience is required</span>
+                                }
+                            </div>
+
+                            <div class="col-md-2">
+                                @if(skills.length > 1){
+                                <button type="button" (click)="removeSkill($index)"
+                                    class="btn btn-outline-danger btn-sm mt-1">✕</button>
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                    }
+                </div>
+                <button type="button" (click)="addSkill()" class="btn btn-outline-success btn-sm mt-1">+ Add
+                    Skill</button>
+            </div>
+            <div class="col-md-12 mb-3">
+                <button type="button" (click)="submit()" class="btn btn-outline-primary form-control">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<app-dump [data]="smartFormData" (emaildata)="getdumbevent($event)"></app-dump>

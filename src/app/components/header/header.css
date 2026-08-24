@@ -22,25 +22,34 @@
     font-size: 22px;
   }
 }
+/* a {
+  &:hover {
+    opacity: 0.85;
+  }
+} */
 
-.nav-links {
+  .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   margin-left: 32px;
 
   a {
     color: inherit;
     text-decoration: none;
     font-size: 14px;
-    padding: 4px 0;
-    border-bottom: 2px solid transparent;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: 0.3s ease;
+    cursor: pointer;
 
     &:hover {
-      opacity: 0.85;
+      background-color: rgba(216, 234, 97, 0.733);
+      color: rgb(165, 16, 16);
     }
 
     &.active {
-      border-bottom-color: currentColor;
+      background-color: white;
+      color: #3f51b5;
       font-weight: 600;
     }
   }

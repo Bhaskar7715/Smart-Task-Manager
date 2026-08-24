@@ -1,0 +1,24 @@
+<p>dump works!</p>
+
+{{data | json}}
+
+<div class="container w-50 mb-5">
+<table>
+    <tr>
+        <th style="border: 1px solid black;padding: 20px;">Employee Name</th>
+        <th style="border: 1px solid black;padding: 20px;">Email</th>
+        <th style="border: 1px solid black;padding: 20px;">Contact</th>
+        <th style="border: 1px solid black;padding: 20px;">Designation</th>
+        <th style="border: 1px solid black;padding: 20px;">Action</th>
+    </tr>
+    <tr *ngFor="let ele of data">
+        <td style="border: 1px solid black;padding: 20px;">{{ele.employee}}</td>
+        <td style="border: 1px solid black;padding: 20px;">{{ele.email}}</td>
+        <td style="border: 1px solid black;padding: 20px;">{{ele.contact}}</td>
+        <td style="border: 1px solid black;padding: 20px;">{{ele.designation}}</td>
+        <td style="border: 1px solid black;padding: 20px;"><span (click)="view(ele.email)">View</span></td>
+    </tr>
+</table>
+</div>
+
+<div style="height: 100px;"></div>

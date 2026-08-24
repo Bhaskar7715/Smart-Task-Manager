@@ -1,0 +1,177 @@
+<div class="container">
+  <h2>User Registration</h2>
+  <form [formGroup]="registrationForm">
+
+    <div class="form-group">
+      <label for="fullName">Full Name *</label>
+      <input id="fullName" type="text" formControlName="fullName" placeholder="Enter full name" />
+      <span class="error" *ngIf="submitted && f['fullName'].errors?.['required']">Full name is required.</span>
+      <span class="error" *ngIf="submitted && f['fullName'].errors?.['minlength']">Minimum 3 characters required.</span>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email *</label>
+      <input id="email" type="email" formControlName="email" placeholder="example@email.com" />
+      <span class="error" *ngIf="submitted && f['email'].errors?.['required']">Email is required.</span>
+      <span class="error" *ngIf="submitted && f['email'].errors?.['email']">Enter a valid email.</span>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone *</label>
+      <input id="phone" type="tel" formControlName="phone" placeholder="10-digit mobile number" maxlength="10" />
+      <span class="error" *ngIf="submitted && f['phone'].errors?.['required']">Phone number is required.</span>
+      <span class="error" *ngIf="submitted && f['phone'].errors?.['pattern']">Enter a valid 10-digit number.</span>
+    </div>
+
+    <div class="form-group">
+      <label for="department">Department *</label>
+      <select id="department" formControlName="department">
+        <option value="">-- Select Department --</option>
+        <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+      </select>
+      <span class="error" *ngIf="submitted && f['department'].errors?.['required']">Please select a department.</span>
+    </div>
+
+    <div class="section-header">
+      <span class="section-label">Skills</span>
+      <button type="button" class="btn-add" (click)="addSkill()">+ Add Skill</button>
+    </div>
+
+    <div formArrayName="skills">
+      <div *ngFor="let skill of skills.controls; let i = index" [formGroupName]="i" class="skill-row">
+
+        <div class="form-group">
+          <label>Skill Name *</label>
+          <input type="text" formControlName="skillName" placeholder="e.g. Angular" />
+          <span class="error" *ngIf="submitted && skill.get('skillName')?.errors?.['required']">Skill name is required.</span>
+        </div>
+
+        <div class="form-group">
+          <label>Experience (Years) *</label>
+          <input type="number" formControlName="experience" placeholder="e.g. 2" min="0" />
+          <span class="error" *ngIf="submitted && skill.get('experience')?.errors?.['required']">Experience is required.</span>
+        </div>
+
+        <button type="button" class="btn-remove" (click)="removeSkill(i)" [disabled]="skills.length === 1">Remove</button>
+      </div>
+    </div>
+
+    <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+
+    <div class="btn-group">
+      <button type="button" (click)="onSubmit()">Register</button>
+      <button type="button" (click)="onReset()">Reset</button>
+    </div>
+
+  </form>
+</div>
+
+
+
+
+<!-- <div class="container">
+    <h2>Add Skills</h2>
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label for="">Skill Name</label>
+            <input type="text" formControlName="skillName" placeholder="Enter Skill Name" >
+            @if(f['skillName'].errors?.['required'] && submitted){
+                 <span class="error"> Skill Name is required</span>
+            }
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" formControlName="email" placeholder="Enter Email" >
+            @if(f['email'].errors?.['required'] && submitted){
+                 <span class="error"> Email is required</span>
+            }
+        </div>
+        <div class="form-group">
+            <label for="">Phone Number</label>
+            <input type="text" formControlName="phone" placeholder="Enter Phone Number" >
+            @if(f['phone'].errors?.['required'] && submitted){
+               <span class="error"> Phone Number is required</span>
+            }
+        </div>
+        <div class="form-group">
+         <select formControlName="designation">
+            <option value="">Select designation</option>
+            <option *ngFor="let ele of designation" [value]="ele.id">{{ele.name}} </option>
+            @if(f['designation'].errors?.['required'] && submitted){
+                Designation is required
+            }
+         </select>
+        </div>
+        <div class="section-header">
+            <span class="section-label">Skilll</span>
+            <button type="button" class="btn-add" (click)="addSkills()">+ Add Skill</button>
+        </div>
+        <div formArrayName="skills">
+            <div *ngFor="let skill of skills.controls; let i = index" [formGroupName]="i" class="skill-row">
+                <div class="form-group">
+                    <label for="">Skill Name</label>
+                    <input type="text" formControlName="skillfield" placeholder="Enter Skill Name">
+                   
+                </div>
+                <div class="form-group">
+                    <label for="">Experience</label>
+                    <input type="text" formControlName="experience" placeholder="Enter experience">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="button" (click)="submit()">Submit</button>
+        </div>
+    </form>
+</div> -->
+
+
+<!-- <div class="container">
+    <h2>Skill Reactive Form</h2>
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label for="1">Name</label>
+            <input type="text" formControlName="name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="1">Email</label>
+            <input type="text" formControlName="email" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="1">Contact</label>
+            <input type="text" formControlName="contact" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <select for="1" formControlName="department">
+            <option value="">Select Department</option>
+            <option *ngFor="let item of department" [value]="item.id">{{item.name}} </option>
+            </select>
+        </div>
+        <div class="section-header">
+            <span class="section-label">Skills</span>
+            <button type="button" (click)="addSkill()">Add Skills+</button>
+        </div>
+
+        <div formArrayName="skills">
+            <div *ngFor="let skill of skills.controls; let i = index" [formGroupName]="i"  class="skill-row">
+                <div class="form-group">
+                    <label for="1">Skill {{i + 1}}</label>
+                    <input type="text" formControlName="skillName" placeholder="Enter Name">
+                </div>
+                <div class="form-group">
+                    <label for="1">Experience</label>
+                    <input type="number" formControlName="experience" placeholder="Experience">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn1" (click)="submit()">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div style="height: 100px;"></div> -->
+
