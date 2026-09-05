@@ -1,0 +1,28 @@
+.container{
+    max-width: 480px;
+    margin: 40px auto; 
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+input[type='text']{
+    padding: 8px;
+}
+
+.user {
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.user h3 {
+  margin: 0 0 5px;
+}
+
+.user p {
+  margin: 4px 0;
+}

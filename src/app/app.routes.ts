@@ -55,6 +55,21 @@ export const routes: Routes = [
     path:'todo',
     loadComponent:()=>
       import('./components/todo/todo').then(c => c.Todo)
+  },
+  {
+    path:'switchmap',
+    loadComponent:()=>
+      import('./components/switchmap/switchmap').then(c => c.Switchmap)
+  },
+  {
+    path:'bootstrap',
+    loadComponent:()=>
+      import('./components/bootstrapform/bootstrapform').then(c => c.Bootstrapform)
+  },
+  {
+    path:'password',
+    loadComponent:()=>
+      import('./components/password/password').then(c => c.Password)
   }
 
 ];

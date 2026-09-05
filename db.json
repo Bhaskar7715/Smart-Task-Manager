@@ -1,0 +1,83 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Learn Signals",
+      "completed": false
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Bhaskar",
+      "email": "bhaskar@example.com"
+    }
+  ],
+  "resumes": [
+    {
+      "name": "Bhaskar Prakash Dhage",
+      "email": "bhaskardhage7715@gmail.com",
+      "mobile": "07715979033",
+      "designation": "Backend Developer",
+      "skills": [
+        {
+          "skillName": "Angular",
+          "experience": 2
+        },
+        {
+          "skillName": "HTML",
+          "experience": 3
+        }
+      ],
+      "id": "KZ3Uzga8OSY"
+    },
+    {
+      "name": "Anupama",
+      "email": "bhaskardhage9799@gmail.com",
+      "mobile": "8979869789696",
+      "designation": "AWS Developer",
+      "skills": [
+        {
+          "skillName": "Angular",
+          "experience": 2
+        },
+        {
+          "skillName": "HTML",
+          "experience": 3
+        }
+      ],
+      "id": "Qmc_1_3Mqe8"
+    },
+    {
+      "name": "Anupama",
+      "email": "bhaskardhage9799@gmail.com",
+      "mobile": "8979869789696",
+      "designation": "AWS Developer",
+      "skills": [
+        {
+          "skillName": "Angular",
+          "experience": 2
+        },
+        {
+          "skillName": "HTML",
+          "experience": 3
+        }
+      ],
+      "id": "HeT9qHJrngA"
+    },
+    {
+      "name": "Bhaskar Prakash Dhage",
+      "email": "bhaskardhage7715@gmail.com",
+      "mobile": "07715979033",
+      "designation": "Backend Developer",
+      "skills": [
+        {
+          "skillName": "Html",
+          "experience": 2
+        }
+      ],
+      "id": "YvNyWA9nnvs"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

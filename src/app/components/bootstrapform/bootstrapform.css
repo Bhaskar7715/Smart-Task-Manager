@@ -1,0 +1,17 @@
+
+.skill-section{
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill-row{
+  display: flex;
+  gap: 10px;
+  
+}
+
+.skill-row .mb-3{
+  flex: 1;
+}
+
+

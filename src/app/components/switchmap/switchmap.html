@@ -1,0 +1,33 @@
+<!-- <div class="container">
+    <div class="form-group">
+        <label for="skill">Skill</label>
+        <input type="text" placeholder="Search Skill">
+    </div>
+</div>   -->
+
+<div class="container">
+  <div class="form-group">
+    <label for="skill">Search User</label>
+    <input
+      type="text"
+      id="skill"
+      placeholder="Search User"
+      #searchInput
+      (input)="onSearch(searchInput.value)"
+    />
+  </div>
+  <div class="user-list">
+    <div
+      class="user"
+      *ngFor="let user of users"
+    >
+      <h3>{{ user.name }}</h3>
+      <p>
+        Username: {{ user.username }}
+      </p>
+      <p>
+        Email: {{ user.email }}
+      </p>
+    </div>
+  </div>
+</div>
